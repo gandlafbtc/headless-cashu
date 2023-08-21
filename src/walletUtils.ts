@@ -1,8 +1,8 @@
 
-// import { deriveKeysetId, type MintKeys, type Proof } from '@cashu/cashu-ts';
+// import { deriveKeysetId, type MintKeys, type Proof } from '@gandlaf21/cashu-ts';
 // import { Mint } from './types';
 
-import { MintKeys, deriveKeysetId } from "@cashu/cashu-ts";
+import { MintKeys, deriveKeysetId } from "@gandlaf21/cashu-ts";
 import { Mint } from "./types";
 import { get, set } from "./storage/storage";
 

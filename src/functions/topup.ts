@@ -1,19 +1,20 @@
 import { add } from "../storage/storage";
 import { Message, TopUpMessage, TopUpReqMessage } from "../types";
-import { getWallet } from "../wallets";
+import { getWalletForMint } from "../wallets";
 import { updateMintKeys } from "../walletUtils";
 import { getMintByUrl } from "../storage/mintStorage";
+import { MessageCode } from "../messages/messages";
 
 export const getTopupInvoiceForAmount = async (
   mintUrl: string,
   amount: number,
 ): Promise<TopUpReqMessage | Message> => {
   try {
-    const wallet = getWallet(mintUrl);
+    const wallet = getWalletForMint(mintUrl);
     const { pr: invoice, hash } = await wallet.requestMint(amount);
     return {
-      code: "I101",
-      message: "invoice fetched from mint",
+      code: MessageCode.I101.code,
+      message: MessageCode.I101.message,
       detail: `minting ${amount} sats at mint ${mintUrl}`,
       params: {
         invoice,
@@ -23,8 +24,8 @@ export const getTopupInvoiceForAmount = async (
   } catch (error) {
     console.error(error);
     return {
-      code: "E101",
-      message: "invoice could not be fetched from mint",
+      code: MessageCode.E101.code,
+      message: MessageCode.E101.message,
       detail: `Error minting ${amount} sats at mint ${mintUrl}`,
     };
   }
@@ -36,7 +37,7 @@ export const topup = async (
   hash: string,
 ): Promise<TopUpMessage | Message> => {
   try {
-    const wallet = getWallet(mintUrl);
+    const wallet = getWalletForMint(mintUrl);
     const { proofs, newKeys } = await wallet.requestTokens(
       amount,
       hash,
@@ -46,8 +47,8 @@ export const topup = async (
     }
     add("cashu-proofs", proofs);
     return {
-      code: "I102",
-      message: "top up successful",
+      code: MessageCode.I102.code,
+      message: MessageCode.I102.message,
       detail: `topped up ${amount} sats from mint ${mintUrl}`,
       params: {
         proofs,
@@ -57,8 +58,8 @@ export const topup = async (
   } catch (error) {
     console.log(error);
     return {
-      code: "E102",
-      message: "top up failed",
+      code: MessageCode.E102.code,
+      message: MessageCode.E102.message,
       detail: `Error topping up ${amount} sats from mint ${mintUrl}`,
     };
   }

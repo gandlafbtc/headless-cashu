@@ -1,7 +1,13 @@
-import { CashuMint, deriveKeysetId } from "@cashu/cashu-ts";
-import { Message, Mint } from "./types";
-import { add, initStorage } from "./storage/storage";
+import { CashuMint, deriveKeysetId } from "@gandlaf21/cashu-ts";
+import { Message, Mint,TopUpMessage,TopUpReqMessage } from "./types";
+import { initStorage } from "./storage/storage";
 import { addMint } from "./functions/addMint";
+import { getMints } from "./functions/getMints";
+import { removeMint } from "./functions/removeMint";
+import { getTopupInvoiceForAmount, topup } from "./functions/topup";
+import { getWalletForMint } from "./wallets";
+import { getBalance } from "./functions/getBalance";
+import { receive } from "./functions/receive";
 
 
 // const topUp = async (paidInvoiceHash: string, mint?: string): Promise<Message> => {
@@ -16,22 +22,8 @@ import { addMint } from "./functions/addMint";
 // 	return
 // }
 
-// const receive = async (token:string): Promise<Message> => {
-// 	return
-// }
-
-// const balance = async (mint?:string): Promise<Message> => {
-// 	return
-// }
 
 
 
-// const getMints = (): Array<Mint> => {
-// 	return
-// }
-
-// const getMintByUrl = (): Mint | undefined => {
-// 	return
-// }
-
-export { addMint, initStorage };
+export type * from './types/index.js';
+export { addMint, removeMint, getMints, initStorage, topup, getTopupInvoiceForAmount, getWalletForMint, getBalance, receive };

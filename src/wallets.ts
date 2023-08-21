@@ -1,11 +1,11 @@
-import { CashuMint, CashuWallet } from "@cashu/cashu-ts";
+import { CashuMint, CashuWallet } from "@gandlaf21/cashu-ts";
 import { get } from "./storage/storage";
 import { Mint } from "./types";
 
 const wallets: Array<CashuWallet> = [] 
 
 
-export const getWallet = (mintUrl: string): CashuWallet => {
+export const getWalletForMint = (mintUrl: string): CashuWallet => {
  let wallet = wallets.find(w=> w.mint.mintUrl===mintUrl)
  if(!wallet){
     const cashuMint = new CashuMint(mintUrl);
