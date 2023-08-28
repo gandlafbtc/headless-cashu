@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Coins from "./Coins.svelte";
+	import Coins from "./coins/Coins.svelte";
 import Mints from "./Mints.svelte";
 </script>
 

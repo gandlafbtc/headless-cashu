@@ -43,6 +43,6 @@
 		"typescript": "^5.0.4"
 	},
 	"dependencies": {
-		"@gandlaf21/cashu-ts": "^0.8.0-rc.12"
+		"@cashu/cashu-ts": "0.8.0-rc.4"
 	}
 }

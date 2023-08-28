@@ -11,6 +11,13 @@ export const getTopupInvoiceForAmount = async (
 ): Promise<TopUpReqMessage | Message> => {
   try {
     const wallet = getWalletForMint(mintUrl);
+    if (!wallet) {
+      return {
+        code: MessageCode.E103.code,
+        message: MessageCode.E103.message,
+        detail: `Error minting ${amount} sats at mint ${mintUrl}.`,
+      };
+    }
     const { pr: invoice, hash } = await wallet.requestMint(amount);
     return {
       code: MessageCode.I101.code,
@@ -38,6 +45,13 @@ export const topup = async (
 ): Promise<TopUpMessage | Message> => {
   try {
     const wallet = getWalletForMint(mintUrl);
+    if (!wallet) {
+      return {
+        code: MessageCode.E103.code,
+        message: MessageCode.E103.message,
+        detail: `Error topping up ${amount} sats at mint ${mintUrl}.`,
+      };
+    }
     const { proofs, newKeys } = await wallet.requestTokens(
       amount,
       hash,

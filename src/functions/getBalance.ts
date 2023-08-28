@@ -1,4 +1,4 @@
-import { Proof } from "@gandlaf21/cashu-ts"
+import { Proof } from "@cashu/cashu-ts"
 import { getMintByUrl } from "../storage/mintStorage"
 import { get } from "../storage/storage"
 import { Mint } from "../types"

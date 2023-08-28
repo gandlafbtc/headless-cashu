@@ -1,4 +1,4 @@
-import type { MintKeys, Proof } from "@gandlaf21/cashu-ts"
+import type { MintKeys, Proof } from "@cashu/cashu-ts"
 
 type Digit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
 

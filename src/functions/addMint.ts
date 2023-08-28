@@ -1,4 +1,4 @@
-import { CashuMint, deriveKeysetId } from "@gandlaf21/cashu-ts";
+import { CashuMint, deriveKeysetId } from "@cashu/cashu-ts";
 import { Message, Mint } from "../types";
 import { add } from "../storage/storage";
 import { MessageCode } from "../messages/messages";
