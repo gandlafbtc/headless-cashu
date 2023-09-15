@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { initStorage } from "../../../dist/lib/es6";
+	import { onMount } from "svelte";
 	import Wallet from "./lib/Wallet.svelte";
-	initStorage()
 </script>
 
 <div>

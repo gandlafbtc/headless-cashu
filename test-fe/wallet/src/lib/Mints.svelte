@@ -4,7 +4,8 @@
 	import { addMint, getMints, removeMint, type Mint, getBalance } from '../../../../dist/lib/es6';
 	import { toast } from '../util/toast';
 	import { set } from '../../../../dist/lib/es6/storage/storage';
-	import { mintBalance } from '../util/balance';
+	import { activeMint } from '../util/mint';
+	
 	let mintUrl = '';
 	let mints: Array<Mint> = [];
 	onMount(() => {
@@ -31,7 +32,7 @@
 		mintsOrdered.unshift(newDefault)
 		set('cashu-mints', mintsOrdered)
 		mints = getMints()
-		mintBalance.set(getBalance([getMints()[0].url]))
+		activeMint.set(mints[0])
 	}
 </script>
 

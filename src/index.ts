@@ -1,6 +1,5 @@
 import { CashuMint, deriveKeysetId } from "@cashu/cashu-ts";
 import { Message, Mint,TopUpMessage,TopUpReqMessage } from "./types";
-import { initStorage } from "./storage/storage";
 import { addMint } from "./functions/addMint";
 import { getMints } from "./functions/getMints";
 import { removeMint } from "./functions/removeMint";
@@ -9,6 +8,8 @@ import { getWalletForMint } from "./wallets";
 import { getBalance } from "./functions/getBalance";
 import { receive } from "./functions/receive";
 import { send } from "./functions/send";
+import { pay } from "./functions/pay";
+import { parseInvoice } from "./functions/pay";
 
 
 // const topUp = async (paidInvoiceHash: string, mint?: string): Promise<Message> => {
@@ -27,4 +28,4 @@ import { send } from "./functions/send";
 
 
 export type * from './types/index.js';
-export {send, addMint, removeMint, getMints, initStorage, topup, getTopupInvoiceForAmount, getWalletForMint, getBalance, receive };
+export {pay, parseInvoice, send, addMint, removeMint, getMints, topup, getTopupInvoiceForAmount, getWalletForMint, getBalance, receive };

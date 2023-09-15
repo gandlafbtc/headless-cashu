@@ -12,7 +12,7 @@ export type MessageCore = {
 
 export type Message = MessageCore & {
 	detail: string
-	params?: unknown
+	params?: {token?: string}
 }
 
 export type TopUpReqMessage = Message & {

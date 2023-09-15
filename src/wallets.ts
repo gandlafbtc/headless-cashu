@@ -12,7 +12,6 @@ export const getWalletForMint = (mintUrl: string): CashuWallet | undefined => {
     const mints:  Array<Mint> = get("cashu-mints")
     const mint = mints.find(m=> m.url===mintUrl)
     if (mint) {
-      
        wallet = new CashuWallet(cashuMint, mint?.keys)
        wallets.push(wallet)
       }

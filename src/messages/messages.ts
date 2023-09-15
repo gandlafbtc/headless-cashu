@@ -21,8 +21,11 @@ class MessageCode {
   static I102: MessageCore = { code: "I102", message: "top up successful" };
   static E102: MessageCore = { code: "E102", message: "top up failed" };
   static I103: MessageCore = { code: "I103", message: "Ecash received" };
-  static I104: MessageCore = { code: "I104", message: "Ecash sent" };
   static E103: MessageCore = { code: "E103", message: "Could not receive" };
+  static I104: MessageCore = { code: "I104", message: "Ecash sent" };
+  static E104: MessageCore = { code: "E104", message: "Could not send" };
+  static I105: MessageCore = { code: "E105", message: "Invoice paid" };
+  static E105: MessageCore = { code: "E105", message: "Could pay invoice" };
 }
 
 export { MessageCode };

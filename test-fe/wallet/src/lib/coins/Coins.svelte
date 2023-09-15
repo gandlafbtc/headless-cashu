@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { getBalance } from '../../../../../dist/lib/es6';
-	import { balance, mintBalance } from '../../util/balance';
+	import { balance } from '../../util/balance';
+	import { activeMint } from '../../util/mint';
 	import ReceiveEcash from './ReceiveEcash.svelte';
 	import ReceiveLightning from './ReceiveLightning.svelte';
 	import SendEcash from './SendEcash.svelte';
+	import SendLightning from './SendLightning.svelte';
 
 	let receiveEcash = true;
 	let sendEcash = true;
+
+	$: mintBalance = getBalance([$activeMint.url])
 
 </script>
 
@@ -15,7 +19,7 @@
 		<div class="flex gap-1 items-baseline">
 
 			<p class="font-bold text-3xl text-center">
-				{$mintBalance}
+				{mintBalance}
 			</p>
 			<p>sats</p>
 		</div>
@@ -74,8 +78,7 @@
 			{#if sendEcash}
 				<SendEcash></SendEcash>
 			{:else}
-				<input type="text" class="input input-primary" placeholder="lnbc....." />
-				<button class="btn btn-primary">send</button>
+				<SendLightning></SendLightning>
 			{/if}
 		</div>
 	</div>
